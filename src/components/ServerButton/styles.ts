@@ -36,7 +36,7 @@ export const Button = styled.button<Props>`
     border-radius: 50%;
 
     content: '';
-    display: ${props => props.hasNotifications ? 'inline' : 'none'};
+    opacity: ${props => props.hasNotifications ? 1 : 0};
   }
 
   &::after {
@@ -67,5 +67,21 @@ export const Button = styled.button<Props>`
   &:hover {
     border-radius: 16px;
     background-color: ${props => props.isHome ? 'var(--rocketseat)' : 'var(--discord)'};
+    &::before {
+      width: 9px;
+      height: 20px;
+
+      transition: all .2s ease;
+      position: absolute;
+      left: -17px;
+      top: calc(50% - 10px);
+
+      background-color: var(--white);
+      border-radius: 7px;
+      opacity: 1;
+
+      content: '';
+      display: inline-block;
+    }
   } 
 `;
